@@ -996,3 +996,12 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     /* Sombra más intensa al pasar el ratón */
 }
+
+.image-tech-container {
+    text-align: center;
+}
+
+.tech-image {
+    max-width: 100%;
+    height: auto;
+}
