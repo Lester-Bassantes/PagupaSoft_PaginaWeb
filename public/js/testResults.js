@@ -1,6 +1,5 @@
-document.getElementById('testButton').addEventListener('click', function () {
+document.getElementById('btnTest').addEventListener('click', function () {
     showLoaderAnimation();
-    InternetIconAnimation();
     hideControls();
     showTestResults();
 });
@@ -8,17 +7,10 @@ document.getElementById('testButton').addEventListener('click', function () {
 function showLoaderAnimation() {
     document.getElementById('loader').classList.remove('d-none');
 }
-function InternetIconAnimation() {
-    // Aplica las animaciones al icono
-    const icon = document.getElementById('internetIcon');
-
-    // Añade la clase de animación al icono
-    icon.classList.add('move-left');
-}
 
 function hideControls() {
-    const btnTest = document.getElementById('testButton');
-    btnTest.style.display = 'none';
+    const btnTest = document.getElementById('btnTest');
+    btnTest.classList.add('d-none');
 }
 
 function showTestResults() {
@@ -29,6 +21,7 @@ function showTestResults() {
             document.getElementById('downloadSpeed').textContent = `${data.download}`;
             document.getElementById('uploadSpeed').textContent = `${data.upload}`;
             document.getElementById('results').classList.remove('d-none');
+            document.getElementById('btnTest').classList.remove('d-none');
         })
         .catch(error => {
             // Manejo de error

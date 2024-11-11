@@ -16,7 +16,7 @@
     <!-- Test Start -->
     <div class="container-fluid d-flex justify-content-center align-items-center mt-4">
         <div class="container text-center">
-            <h2>Sugerencia:</h2>
+            <h4>Sugerencia:</h4>
             <p>
                 Para obtener resultados óptimos, detén todas las descargas y aplicaciones que consuman ancho de banda en
                 tu ordenador y en otros dispositivos conectados a la misma red (como smartphones, tablets, consolas de
@@ -26,50 +26,66 @@
                 resultados.
             </p>
 
+            <div class="container">
+                <div class="results" id="results">
+                    <h4>Resultados:</h4>
+                    <div id="speedResults" class="row text-center mt-2">
+                        <div class="col-6">
+                            <p class="fs-3"><strong>Descarga</strong></p>
+                            <p id="downloadSpeed" class="display-4">-</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="fs-3"><strong>Subida</strong></p>
+                            <p id="uploadSpeed" class="display-4">-</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container mt-3 mb-3">
+                <div class="d-flex justify-content-center align-items-center position-relative" style="height: 200px;">
+                    <div id="loader" class="loader d-none position-absolute top-50 start-50 translate-middle"></div>
+                    <button id="btnTest" class="btn btn-primary">Iniciar</button>
+                </div>
+            </div>
+
+
             <!-- Contenedor para el icono de Internet y los elementos de prueba a la derecha -->
-            <div class="d-flex justify-content-center align-items-center">
-                <!-- Icono de Internet -->
+            <!-- <div class="d-flex justify-content-center align-items-center">
                 <div id="internetIconContainer wow fadeInRight" class="d-inline-block mb-3 me-3">
                     <img id="internetIcon" src="img/internet-test.svg" alt="Internet picture" class="img-fluid"
                         style="max-width: 300px; height: auto;">
                 </div>
 
-                <!-- Contenedor para el botón, loader y resultados -->
-                <div class="position-relative" style="width: 250px;">
-                    <!-- Loader -->
+                <div class="position-relative" style="width: 300px;">
                     <div id="loader" class="loader d-none position-absolute top-50 start-50 translate-middle"></div>
 
-                    <!-- Resultados -->
-                    <div id="results" class="mt-2 d-none position-absolute top-50 start-50 translate-middle">
+                    <div id="results" class="d-none position-absolute top-50 start-50 translate-middle"
+                        style="width: 300px;">
                         <h4>Resultados</h4>
                         <div id="speedResults" class="row text-center mt-2">
-                            <!-- Columna de Descarga -->
                             <div class="col-6">
                                 <p><strong>Descarga</strong></p>
                                 <p id="downloadSpeed" class="display-4">-</p>
-                                <span class="unit">Mbps</span>
                             </div>
-                            <!-- Columna de Subida -->
                             <div class="col-6">
                                 <p><strong>Subida</strong></p>
                                 <p id="uploadSpeed" class="display-4">-</p>
-                                <span class="unit">Mbps</span>
                             </div>
                         </div>
-                        <!-- Botones de Más información y Retestear -->
                         <div class="mt-3 d-flex justify-content-around">
                             <button class="btn btn-info">Más información</button>
                             <button class="btn btn-secondary" id="retestButton">Retestear</button>
                         </div>
                     </div>
 
-                    <!-- Botón de inicio del test -->
                     <button id="testButton" class="btn btn-primary rounded-pill w-100">
                         Testear ancho de banda
                     </button>
                 </div>
 
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- Test End -->
