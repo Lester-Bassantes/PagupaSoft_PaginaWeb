@@ -12,9 +12,10 @@
   "description": "",
   "dependencies": {
     "ejs": "^3.1.10",
-    "express": "^4.21.0"
+    "express": "^4.21.0",
+    "fast-speedtest-api": "^0.3.2"
   },
   "devDependencies": {
-    "nodemon": "^3.1.7" 
+    "nodemon": "^3.1.7"
   }
 }

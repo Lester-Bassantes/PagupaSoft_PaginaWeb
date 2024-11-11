@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+// Importar test de velocidad
+let getSpeedTestResults = require('./services/speedTest');
+
 // Configurar el motor de plantillas EJS
 app.set('view engine', 'ejs');
 app.set('views', './views'); // Directorio donde estarán las plantillas
@@ -30,13 +33,23 @@ app.get('/servicios', (req, res) => {
 });
 
 // Ruta "Blog"
-app.get('/blog', (req, res) => {
-  res.render('404', { page: 'blog' });
+app.get('/test', (req, res) => {
+  res.render('test', { page: 'test' });
 });
 
 // Ruta "Contacto"
 app.get('/contacto', (req, res) => {
   res.render('404', { page: 'contacto' });
+});
+
+// Ruta "Test"
+app.get('/test-velocidad', async (req, res) => {
+  try {
+    const speedResults = await getSpeedTestResults();
+    res.json(speedResults);
+  } catch (error) {
+    res.status(500).send('Error realizando el test de velocidad');
+  }
 });
 
 app.listen(port, () => {
