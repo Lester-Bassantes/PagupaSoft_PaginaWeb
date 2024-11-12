@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const fs = require('fs');
+const path = require('path');
 
 // Importar test de velocidad
 let getSpeedTestResults = require('./services/speedTest');
@@ -32,7 +34,7 @@ app.get('/servicios', (req, res) => {
   res.render('services', { page: 'servicios' });
 });
 
-// Ruta "Blog"
+// Ruta "Test"
 app.get('/test', (req, res) => {
   res.render('test', { page: 'test' });
 });
@@ -42,7 +44,7 @@ app.get('/contacto', (req, res) => {
   res.render('404', { page: 'contacto' });
 });
 
-// Ruta "Test"
+// Ruta "Test-velocidad"
 app.get('/test-velocidad', async (req, res) => {
   try {
     const speedResults = await getSpeedTestResults();
@@ -50,6 +52,18 @@ app.get('/test-velocidad', async (req, res) => {
   } catch (error) {
     res.status(500).send('Error realizando el test de velocidad');
   }
+});
+
+// Ruta para servir la lista de PDFs
+app.get('/documentos', (req, res) => {
+  const directoryPath = path.join(__dirname, 'public/documents');
+  fs.readdir(directoryPath, (err, files) => {
+    if (err) {
+      return res.status(500).send('Error al leer la carpeta');
+    }
+    const pdfFiles = files.filter(file => file.endsWith('.pdf'));
+    res.render('documents', { pdfFiles, page: 'documentos' });
+  });
 });
 
 app.listen(port, () => {

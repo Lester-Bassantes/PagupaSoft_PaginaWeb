@@ -1049,3 +1049,74 @@
     width: 50px;
     height: auto;
 }
+
+/* Lista de PDF */
+.list-pdf-item {
+    position: relative;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.list-pdf-item:hover {
+    background-color: #e6f7ff;
+}
+
+/* Borde superior e inferior animado */
+.list-pdf-item::before,
+.list-pdf-item::after {
+    content: '';
+    position: absolute;
+    height: 3px;
+    background-color: #007bff;
+    transition: width 0.3s ease;
+}
+
+/* Borde superior - crece de izquierda a derecha */
+.list-pdf-item::before {
+    top: 0;
+    left: 0;
+    width: 0;
+    background-color: #007bff;
+    /* Color del borde superior */
+}
+
+.list-pdf-item:hover::before {
+    width: 100%;
+}
+
+/* Borde inferior - crece de derecha a izquierda */
+.list-pdf-item::after {
+    bottom: 0;
+    right: 0;
+    width: 0;
+    background-color: #28a745;
+    /* Color del borde inferior */
+}
+
+.list-pdf-item:hover::after {
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .list-pdf {
+        width: 100% !important;
+        /* Lista ocupa todo el ancho en móviles */
+        max-width: 100% !important;
+        margin-bottom: 15px;
+        /* Un pequeño margen entre la lista y el visor */
+    }
+
+    #pdfViewer {
+        height: 600px;
+        /* Ajuste de altura para el visor de PDF en móviles */
+    }
+
+    .list-pdf-item {
+        font-size: 14px;
+        /* Tamaño de fuente más pequeño en móviles */
+    }
+}
