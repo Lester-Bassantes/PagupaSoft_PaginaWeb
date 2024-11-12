@@ -11,13 +11,15 @@ function showLoaderAnimation() {
 function hideControls() {
     const btnTest = document.getElementById('btnTest');
     btnTest.classList.add('d-none');
+    document.getElementById('downloadSpeed').textContent = `-`;
+    document.getElementById('uploadSpeed').textContent = `-`;
 }
 
 function showTestResults() {
     fetch('/test-velocidad')
         .then(response => response.json())
         .then(data => {
-            document.getElementById('loader').style.display = 'none';
+            document.getElementById('loader').classList.add('d-none');
             document.getElementById('downloadSpeed').textContent = `${data.download}`;
             document.getElementById('uploadSpeed').textContent = `${data.upload}`;
             document.getElementById('results').classList.remove('d-none');

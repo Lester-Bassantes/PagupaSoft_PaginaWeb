@@ -1043,3 +1043,9 @@
     width: 100px;
     height: 100px;
 }
+
+/* Iconos del test de velocidad */
+.test-icon {
+    width: 50px;
+    height: auto;
+}
