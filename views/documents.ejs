@@ -16,7 +16,7 @@
     <div class="container-fluid d-flex flex-column flex-md-row">
         <!-- Lista de PDFs en el lado izquierdo -->
         <div class="list-pdf mt-3 mb-3 mb-md-0" style="width: 100%; max-width: 30%; overflow-y: auto;">
-            <h5 class="mb-2">Documentación disponible</h5>
+            <h5 class="mb-4">Documentación disponible</h5>
             <% pdfFiles.forEach(file=> { %>
                 <div class="list-pdf-item" onclick="loadPDF('<%= file %>')">
                     <%= file %>
