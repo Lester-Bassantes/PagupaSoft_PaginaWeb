@@ -7,9 +7,16 @@ const path = require('path');
 // Importar test de velocidad
 let getSpeedTestResults = require('./services/speedTest');
 
+// Importar controlador del formulario
+let frmSendMessage = require('./services/frmSendMessage');
+
 // Configurar el motor de plantillas EJS
 app.set('view engine', 'ejs');
 app.set('views', './views'); // Directorio donde estarán las plantillas
+
+// Middleware para manejar los datos del formulario
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Servir archivos estáticos (HTML, CSS, imágenes, etc.) desde la carpeta 'public'
 app.use(express.static('public'));
@@ -41,7 +48,7 @@ app.get('/test', (req, res) => {
 
 // Ruta "Contacto"
 app.get('/contacto', (req, res) => {
-  res.render('404', { page: 'contacto' });
+  res.render('contactUs', { page: 'contacto' });
 });
 
 // Ruta "Test-velocidad"
@@ -65,6 +72,9 @@ app.get('/documentos', (req, res) => {
     res.render('documents', { pdfFiles, page: 'documentos' });
   });
 });
+
+// Ruta para manejar el formulario de contacto
+app.post('/sendMessage', frmSendMessage.sendMessage);
 
 app.listen(port, () => {
   console.log(`Servidor ejecutándose en http://localhost:${port}`);

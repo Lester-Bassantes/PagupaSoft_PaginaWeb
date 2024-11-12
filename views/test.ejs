@@ -15,7 +15,7 @@
 
     <!-- Test Start -->
     <div class="container-fluid d-flex justify-content-center align-items-center mt-4">
-        <div class="container text-center">
+        <div class="container text-center wow fadeInUp" data-wow-delay="0.2s">
             <h4>Sugerencia:</h4>
             <p>
                 Para obtener resultados óptimos, detén todas las descargas y aplicaciones que consuman ancho de banda en
@@ -30,12 +30,12 @@
                 <div class="results" id="results">
                     <h4>Resultados:</h4>
                     <div id="speedResults" class="row text-center mt-2">
-                        <div class="col-6">
+                        <div class="col-6 wow fadeInLeft" data-wow-delay="0.2s">
                             <p class="fs-3"><strong>Descarga</strong></p>
                             <img class="test-icon" src="img/download-icon.png" alt="Descarga-icon">
                             <p id="downloadSpeed" class="display-4">-</p>
                         </div>
-                        <div class="col-6">
+                        <div class="col-6 wow fadeInRight" data-wow-delay="0.2s">
                             <p class="fs-3"><strong>Subida</strong></p>
                             <img class="test-icon" src="img/upload-icon.png" alt="Descarga-icon">
                             <p id="uploadSpeed" class="display-4">-</p>
@@ -45,7 +45,7 @@
             </div>
 
 
-            <div class="container mt-3 mb-3">
+            <div class="container mt-3 mb-3 wow fadeInUpBig" data-wow-delay="0.2s">
                 <div class="d-flex justify-content-center align-items-center position-relative" style="height: 200px;">
                     <div id="loader" class="loader d-none position-absolute top-50 start-50 translate-middle"></div>
                     <button id="btnTest" class="btn btn-primary">Iniciar</button>

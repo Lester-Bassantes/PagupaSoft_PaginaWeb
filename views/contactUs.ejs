@@ -1,0 +1,117 @@
+<%- include('partials/header') %>
+    <!-- Header Start -->
+    <div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Contacta con nosotros</h4>
+            <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+                <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="#">Secciones</a></li>
+                <li class="breadcrumb-item active text-primary">Contacto</li>
+            </ol>
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- Contact Start -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Formulario de Contacto -->
+            <div class="col-md-6 mb-5 wow fadeInLeft" data-wow-delay="0.2s">
+                <h5 class="mb-4">Envíanos un mensaje</h5>
+                <form id="frmSendMessage" action="/sendMessage" method="POST" onsubmit="validateForm()">
+                    <div class="form-group mb-3">
+                        <label for="name">Nombre</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Tu correo"
+                            required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="subject">Asunto</label>
+                        <input type="text" class="form-control" id="subject" name="subject"
+                            placeholder="Asunto del mensaje" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="message">Mensaje</label>
+                        <textarea class="form-control mb-3" id="message" name="message" rows="4"
+                            placeholder="Escribe tu mensaje aquí" required></textarea>
+                    </div>
+                    <p id="error-message" style="color: red;"></p>
+                    <button id="btnSendMessage" type="submit" class="btn btn-primary">Enviar mensaje</button>
+                </form>
+            </div>
+            <!-- Información de Contacto -->
+            <div class="col-md-6 wow fadeInRight" data-wow-delay="0.2s">
+                <div class="card mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title mb-2">Horario de atención</h5>
+                                <ul class="list-unstyled">
+                                    <li class="contact-card-item mb-3 text-nowrap">
+                                        <strong>Lunes a Viernes:</strong> De 8:30 hasta 17 horas
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title mb-2">Información de contacto</h5>
+                                <ul class="list-unstyled">
+                                    <li class="contact-card-item mb-3">
+                                        <i class="fas fa-map-marker-alt text-secondary me-3"></i>
+                                        <strong>Dirección:</strong> Ricardo Sotomayor y Dalila Echeverría
+                                    </li>
+                                    <li class="contact-card-item mb-3">
+                                        <i class="fa fa-phone-alt text-secondary me-3"></i>
+                                        <strong>Teléfono:</strong> +593123456789
+                                    </li>
+                                    <li class="contact-card-item mb-3">
+                                        <i class="fas fa-envelope text-secondary me-3"></i>
+                                        <strong>Email:</strong> pagupa_soft@hotmail.com
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title mb-4">Síguenos en nuestras redes sociales</h5>
+                                <div class="d-flex">
+                                    <a class="btn btn-primary btn-sm-square rounded-circle me-3" target="_blank"
+                                        href="https://www.facebook.com/pagupasoft?locale=es_LA"><i
+                                            class="fab fa-facebook-f text-white"></i></a>
+                                    <a class="btn btn-primary btn-sm-square rounded-circle me-3" target="_blank"
+                                        href="https://www.youtube.com/@pagupasoft2307"><i
+                                            class="fab fa-youtube text-white"></i></a>
+                                    <a class="btn btn-primary btn-sm-square rounded-circle me-3" target="_blank"
+                                        href="https://www.instagram.com/pagupasoft/"><i
+                                            class="fab fa-instagram text-white"></i></a>
+                                    <a class="btn btn-primary btn-sm-square rounded-circle me-0" target="_blank"
+                                        href="https://wa.me/593123456789"><i class="fab fa-whatsapp text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <script src="js/contactUsController.js"></script>
+
+    <!-- Contact End -->
+
+    <%- include('partials/footer') %>
