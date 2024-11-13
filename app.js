@@ -8,7 +8,7 @@ const path = require('path');
 let getSpeedTestResults = require('./services/speedTest');
 
 // Importar controlador del formulario
-let frmSendMessage = require('./services/frmSendMessage');
+let sendEmail = require('./services/frmSendMessage');
 
 // Configurar el motor de plantillas EJS
 app.set('view engine', 'ejs');
@@ -74,7 +74,7 @@ app.get('/documentos', (req, res) => {
 });
 
 // Ruta para manejar el formulario de contacto
-app.post('/sendMessage', frmSendMessage.sendMessage);
+app.post('/sendMessage', sendEmail);
 
 app.listen(port, () => {
   console.log(`Servidor ejecutándose en http://localhost:${port}`);

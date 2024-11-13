@@ -1,5 +1,3 @@
-/*** Spinner Start ***/
-/*** Spinner ***/
 #spinner {
     opacity: 0;
     visibility: hidden;
@@ -13,8 +11,6 @@
     opacity: 1;
 }
 
-/*** Spinner End ***/
-
 .back-to-top {
     position: fixed;
     right: 30px;
@@ -23,7 +19,6 @@
     z-index: 99;
 }
 
-/*** Button Start ***/
 .btn {
     font-weight: 600;
     transition: .5s;
@@ -86,8 +81,6 @@
     background: var(--bs-primary);
 }
 
-
-/*** Topbar Start ***/
 .topbar .dropdown-toggle::after {
     border: none;
     content: "\f107";
@@ -113,11 +106,6 @@
     opacity: 1;
 }
 
-/*** Topbar End ***/
-
-
-
-/*** Navbar ***/
 .navbar-light .navbar-nav .nav-link {
     font-family: 'Roboto', sans-serif;
     position: relative;
@@ -178,7 +166,7 @@
     opacity: 1;
 }
 
-@media (max-width: 991.98px) {
+@media (max-width:991.98px) {
     .sticky-top.navbar-light {
         position: relative;
         background: var(--bs-white);
@@ -211,7 +199,7 @@
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width:992px) {
     .navbar .nav-item .dropdown-menu {
         display: block;
         visibility: hidden;
@@ -273,9 +261,6 @@
     }
 }
 
-/*** Navbar End ***/
-
-/*** Carousel Hero Header Start ***/
 .header-carousel .header-carousel-item img {
     object-fit: cover;
 }
@@ -284,7 +269,6 @@
 .header-carousel .header-carousel-item img {
     height: 700px;
 }
-
 
 .header-carousel .owl-nav .owl-prev,
 .header-carousel .owl-nav .owl-next {
@@ -318,7 +302,6 @@
     color: var(--bs-primary);
 }
 
-
 .header-carousel .header-carousel-item .carousel-caption {
     position: absolute;
     width: 100%;
@@ -331,19 +314,18 @@
     align-items: center;
 }
 
-@media (max-width: 991px) {
+@media (max-width:991px) {
     .header-carousel .header-carousel-item .carousel-caption {
         padding-top: 45px;
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width:767px) {
     .header-carousel .owl-nav .owl-prev {
         left: 50%;
         transform: translateX(-50%);
         margin-left: -45px;
     }
-
 
     .header-carousel .owl-nav .owl-next {
         left: 50%;
@@ -351,7 +333,6 @@
         margin-left: 45px;
     }
 }
-
 
 .header-carousel .header-carousel-item img {
     animation-name: image-zoom;
@@ -389,10 +370,6 @@
     }
 }
 
-/*** Carousel Hero Header End ***/
-
-
-/*** Single Page Hero Header Start ***/
 .bg-breadcrumb {
     position: relative;
     overflow: hidden;
@@ -404,13 +381,13 @@
     transition: 0.5s;
 }
 
-@media (min-width: 992px) {
+@media (min-width:992px) {
     .bg-breadcrumb {
         padding: 140px 0 60px 0;
     }
 }
 
-@media (max-width: 991px) {
+@media (max-width:991px) {
     .bg-breadcrumb {
         padding: 60px 0 60px 0;
     }
@@ -424,10 +401,6 @@
     color: var(--bs-white);
 }
 
-/*** Single Page Hero Header End ***/
-
-
-/*** Service Start ***/
 .service .service-item {
     background: var(--bs-light);
     border-radius: 10px;
@@ -454,10 +427,6 @@
     transform: scale(1.2);
 }
 
-/*** Service End ***/
-
-
-/*** Features Start ***/
 .feature .feature-item {
     text-align: center;
     border-radius: 10px;
@@ -476,9 +445,6 @@
     display: inline-block;
 }
 
-/*** Features End ***/
-
-/*** Offer Start ***/
 .offer-section .nav a.accordion-link {
     width: 100%;
     border-radius: 10px;
@@ -500,9 +466,6 @@
     color: var(--bs-white);
 }
 
-/*** Offer End ***/
-
-/*** Blog Start ***/
 .blog .blog-item {
     border-radius: 10px;
     background: var(--bs-white);
@@ -603,10 +566,6 @@
     color: var(--bs-primary);
 }
 
-/*** Blog End ***/
-
-
-/*** FAQs Start ***/
 .faq-section .accordion .accordion-item .accordion-header .accordion-button {
     color: var(--bs-secondary);
 }
@@ -615,9 +574,6 @@
     color: var(--bs-dark);
 }
 
-/*** FAQs End ***/
-
-/*** Team Start ***/
 .team .team-item {
     position: relative;
     padding: 0 25px 25px 25px;
@@ -723,9 +679,6 @@
     background: var(--bs-dark);
 }
 
-/*** Team End ***/
-
-/*** Testimonial Start ***/
 .testimonial .testimonial-item {
     position: relative;
     margin-bottom: 30px;
@@ -888,9 +841,6 @@
     transition: 0.5s;
 }
 
-/*** Testimonial End ***/
-
-/*** Footer Start ***/
 .footer {
     background: var(--bs-secondary);
 }
@@ -927,30 +877,19 @@
     color: var(--bs-primary);
 }
 
-/*** Footer End ***/
-
-/*** copyright Start ***/
 .copyright {
     background: var(--bs-dark);
 }
 
-/*** copyright end ***/
-
-/*** Estilos del contenedor del mapa ***/
 #map {
     height: 400px;
     width: 100%;
     border: 3px solid var(--bs-primary);
-    /* Borde del color deseado */
     border-radius: 10px;
-    /* Esquinas redondeadas */
     box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
-    /* Sombra elegante */
     margin-top: 20px;
-    /* Espacio superior para separar del contenido */
 }
 
-/* Animación de carga para el mapa */
 #map:before {
     content: 'Cargando mapa...';
     display: flex;
@@ -971,30 +910,21 @@
 
 .leaflet-container {
     border-radius: 10px;
-    /* Asegura que el mapa tenga esquinas redondeadas */
 }
 
-/* Quita el texto de carga al inicializar el mapa */
 #map.loading:before {
     opacity: 0;
 }
 
-
-
-/* Estilos específicos para la imagen del gerente */
 .img-gerente {
     margin: 10px 5px;
     border-radius: 15px;
-    /* Esquinas redondeadas */
     transition: transform 0.3s, box-shadow 0.3s;
-    /* Efecto de transición al pasar el ratón */
 }
 
 .img-gerente:hover {
     transform: scale(1.05);
-    /* Aumenta ligeramente el tamaño al pasar el ratón */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    /* Sombra más intensa al pasar el ratón */
 }
 
 .image-tech-container {
@@ -1006,7 +936,6 @@
     height: auto;
 }
 
-/* Loader del test de velocidad */
 .loader {
     width: 200px;
     aspect-ratio: 1;
@@ -1044,13 +973,11 @@
     height: 100px;
 }
 
-/* Iconos del test de velocidad */
 .test-icon {
     width: 50px;
     height: auto;
 }
 
-/* Lista de PDF */
 .list-pdf-item {
     position: relative;
     padding: 10px;
@@ -1065,7 +992,6 @@
     background-color: #e6f7ff;
 }
 
-/* Borde superior e inferior animado */
 .list-pdf-item::before,
 .list-pdf-item::after {
     content: '';
@@ -1075,48 +1001,40 @@
     transition: width 0.3s ease;
 }
 
-/* Borde superior - crece de izquierda a derecha */
 .list-pdf-item::before {
     top: 0;
     left: 0;
     width: 0;
     background-color: #007bff;
-    /* Color del borde superior */
 }
 
 .list-pdf-item:hover::before {
     width: 100%;
 }
 
-/* Borde inferior - crece de derecha a izquierda */
 .list-pdf-item::after {
     bottom: 0;
     right: 0;
     width: 0;
     background-color: #28a745;
-    /* Color del borde inferior */
 }
 
 .list-pdf-item:hover::after {
     width: 100%;
 }
 
-@media (max-width: 767px) {
+@media (max-width:767px) {
     .list-pdf {
         width: 100% !important;
-        /* Lista ocupa todo el ancho en móviles */
         max-width: 100% !important;
         margin-bottom: 15px;
-        /* Un pequeño margen entre la lista y el visor */
     }
 
     #pdfViewer {
         height: 600px;
-        /* Ajuste de altura para el visor de PDF en móviles */
     }
 
     .list-pdf-item {
         font-size: 14px;
-        /* Tamaño de fuente más pequeño en móviles */
     }
 }

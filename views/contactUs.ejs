@@ -18,7 +18,7 @@
             <!-- Formulario de Contacto -->
             <div class="col-md-6 mb-5 wow fadeInLeft" data-wow-delay="0.2s">
                 <h5 class="mb-4">Envíanos un mensaje</h5>
-                <form id="frmSendMessage" action="/sendMessage" method="POST" onsubmit="validateForm()">
+                <form id="frmSendMessage" action="/sendMessage" method="POST" onsubmit="validateForm(event)">
                     <div class="form-group mb-3">
                         <label for="name">Nombre</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Tu nombre" required>
