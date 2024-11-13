@@ -2,7 +2,7 @@
 const FastSpeedtest = require('fast-speedtest-api');
 
 const speedtest = new FastSpeedtest({
-    token: "YXNkZmFzZGxmbnNkYWZoYXNkZmhrYWxm",
+    token: process.env.FAST_WEB_TOKEN,
     verbose: false,
     timeout: 10000,
     unit: FastSpeedtest.UNITS.Mbps

@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
-const port = 3000;
 const fs = require('fs');
 const path = require('path');
+
+// Importar variables de entorno
+require('dotenv').config();
 
 // Importar test de velocidad
 let getSpeedTestResults = require('./services/speedTest');
@@ -76,6 +78,6 @@ app.get('/documentos', (req, res) => {
 // Ruta para manejar el formulario de contacto
 app.post('/sendMessage', sendEmail);
 
-app.listen(port, () => {
-  console.log(`Servidor ejecutándose en http://localhost:${port}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Servidor ejecutándose en http://localhost:${process.env.PORT}`);
 });

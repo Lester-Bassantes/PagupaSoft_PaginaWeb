@@ -11,34 +11,27 @@ function validateForm(event) {
     // Validar nombre
     if (nombre.length < 2) {
         errorMessage.textContent = 'Por favor, ingresa un nombre válido.';
-        event.preventDefault(); // Evita que el formulario se envíe
-        return false;
+        return false; // Devuelve false si hay un error
     }
 
     // Validar email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         errorMessage.textContent = 'Por favor, ingresa un email válido.';
-        event.preventDefault();
-        return false;
+        return false; // Devuelve false si hay un error
     }
 
     // Validar asunto
     if (subject.length < 2) {
         errorMessage.textContent = 'Por favor, ingresa un asunto válido.';
-        event.preventDefault();
-        return false;
+        return false; // Devuelve false si hay un error
     }
 
     // Validar mensaje
     if (mensaje.length < 5) {
         errorMessage.textContent = 'El mensaje debe contener al menos 5 caracteres.';
-        event.preventDefault();
-        return false;
+        return false; // Devuelve false si hay un error
     }
 
-    return true;
+    return true; // Devuelve true si todo está bien
 }
-
-
-

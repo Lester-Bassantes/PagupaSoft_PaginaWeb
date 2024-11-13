@@ -1,32 +1,54 @@
-import showNotification from './notificationController';
+// Manejo de datos del formulario y envío de mensaje
+document.getElementById('frmSendMessage').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevenir el envío del formulario
 
-function handleFormSubmission(event) {
-    event.preventDefault(); // Prevenir el envío del formulario para que el código pueda ejecutarse
+    // Obtener los valores del formulario
+    const formData = new FormData(this);
+    const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        subject: formData.get('subject'),
+        message: formData.get('message')
+    };
 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
-
+    // Realizar la solicitud POST al servidor
     fetch('/sendMessage', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, subject, message })
+        body: JSON.stringify(data)
     })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                showNotification('¡Éxito!', 'Hemos recibido tu mensaje, te responderemos pronto...', 'success');
+        .then(response => {
+            // Verificar si la respuesta fue exitosa
+            if (response.ok) {
+                this.reset();
+
+                // Mostrar una notificación de éxito con SweetAlert
+                Swal.fire({
+                    title: '¡Éxito!',
+                    text: 'Hemos recibido tu mensaje. Nos pondremos en contacto contigo.',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                });
             } else {
-                showNotification('Error', 'Lo sentimos, ha ocurrido un error. Inténtalo más tarde...', 'error');
+                // Mostrar una notificación de error con SweetAlert
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Hubo un problema al enviar tu mensaje, por favor inténtalo de nuevo.',
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar'
+                });
             }
         })
         .catch(error => {
-            showNotification('Error', 'Hubo un problema al enviar el mensaje.', error);
+            // Mostrar una notificación de error si ocurre un problema con la solicitud
+            Swal.fire({
+                title: 'Error',
+                text: 'Hubo un problema al enviar tu mensaje.',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
         });
-}
+});
 
-// Exportar la función para usarla en el formulario
-export { handleFormSubmission };

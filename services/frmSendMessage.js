@@ -5,14 +5,14 @@ const OAuth2 = google.auth.OAuth2;
 
 // Configura el cliente OAuth2
 const oauth2Client = new OAuth2(
-    'INSERTE CLIENT_ID', // CLIENT ID
-    'INSERTE CLIENTE_SECRET', // CLIENTE SECRET
+    process.env.CLIENT_ID, // CLIENT ID
+    process.env.CLIENT_SECRET, // CLIENTE SECRET
     'https://developers.google.com/oauthplayground' // Redirección
 );
 
 // Configura el token de acceso
 oauth2Client.setCredentials({
-    refresh_token: 'INSERTE REFRESH_TOKEN' // REFRESH TOKEN
+    refresh_token: process.env.REFRESH_TOKEN // REFRESH TOKEN
 });
 
 async function sendEmail(req, res) {
@@ -25,10 +25,10 @@ async function sendEmail(req, res) {
             service: 'gmail',
             auth: {
                 type: 'OAuth2',
-                user: 'correo_cuenta_dueña_proyecto',
-                clientId: 'INSERTE CLIENT_ID',
-                clientSecret: 'INSERTE CLIENT_SECRET',
-                refreshToken: 'INSERTE REFRESH_TOKEN',
+                user: process.env.COMPANY_EMAIL,
+                clientId: process.env.CLIENT_ID,
+                clientSecret: process.env.CLIENT_SECRET,
+                refreshToken: process.env.REFRESH_TOKEN,
                 accessToken: accessToken
             }
         });
@@ -45,8 +45,8 @@ async function sendEmail(req, res) {
 
         // Configuración del correo electrónico
         const mailOptions = {
-            from: 'correo_cuenta_dueña_proyecto',
-            to: 'correo_al_que_se_envia', // Destinatario final
+            from: process.env.COMPANY_EMAIL,
+            to: process.env.COMPANY_EMAIL, // Destinatario final
             replyTo: email, // Dirección a la que se responderá si respondes al correo
             subject: `Solicitud de información sobre ${subject}`,
             text: emailMessage
@@ -55,10 +55,10 @@ async function sendEmail(req, res) {
         // Envía el correo electrónico
         const info = await transporter.sendMail(mailOptions);
         console.log('Correo enviado:', info.response);
-        res.status(200).send('Mensaje enviado con éxito');
+        res.status(200).send();
     } catch (error) {
         console.log('Error al enviar correo:', error);
-        res.status(500).send('Error al enviar el mensaje');
+        res.status(500).send();
     }
 }
 
