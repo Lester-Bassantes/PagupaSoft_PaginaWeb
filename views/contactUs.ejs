@@ -18,7 +18,7 @@
             <!-- Formulario de Contacto -->
             <div class="col-md-6 mb-5 wow fadeInLeft" data-wow-delay="0.2s">
                 <h5 class="mb-4">Envíanos un mensaje</h5>
-                <form id="frmSendMessage" action="/sendMessage" method="POST" onsubmit="return validateForm(event)">
+                <form id="frmSendMessage" action="/sendMessage" method="POST">
                     <div class="form-group mb-3">
                         <label for="name">Nombre</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Tu nombre" required>
@@ -111,7 +111,6 @@
 
         </div>
     </div>
-    <script src="js/contactUsController.js"></script>
     <script src="js/contactUsNotification.js"></script>
 
     <!-- Contact End -->

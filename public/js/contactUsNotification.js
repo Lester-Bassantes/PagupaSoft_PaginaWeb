@@ -1,4 +1,3 @@
-// Manejo de datos del formulario y envío de mensaje
 document.getElementById('frmSendMessage').addEventListener('submit', function (event) {
     hideControls();
     showLoaderAnimationSubmit();
@@ -22,30 +21,33 @@ document.getElementById('frmSendMessage').addEventListener('submit', function (e
         },
         body: JSON.stringify(data)
     })
-        .then(response => {
+        .then(response => response.json())  // Esperar una respuesta JSON
+        .then(data => {
             // Verificar si la respuesta fue exitosa
             document.getElementById('formContact-loader').classList.add('d-none');
             document.getElementById('btnSendMessage').classList.remove('d-none');
-            if (response.ok) {
-                this.reset();
 
-                // Mostrar una notificación de éxito con SweetAlert
+            if (data.errors) {
+                // Si hay errores de validación, mostrarlos
+                const errorMessage = data.errors.map(error => error.msg).join('<br>');
+
                 Swal.fire({
-                    title: '¡Éxito!',
-                    text: 'Hemos recibido tu mensaje. Nos pondremos en contacto contigo.',
-                    icon: 'success',
-                    confirmButtonText: 'Aceptar'
-                });
-            } else {
-                // Mostrar una notificación de error con SweetAlert
-                Swal.fire({
-                    title: 'Error',
-                    text: 'Hubo un problema al enviar tu mensaje, por favor inténtalo de nuevo.',
+                    title: 'Error de validación',
+                    html: errorMessage, // Mostrar los errores de validación
                     icon: 'error',
                     confirmButtonText: 'Aceptar'
                 });
-            }
+            } else if (data.message) {
+                // Si hay mensaje de éxito
+                this.reset();
 
+                Swal.fire({
+                    title: '¡Éxito!',
+                    text: data.message,  // Mostrar el mensaje de éxito del servidor
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                });
+            }
         })
         .catch(error => {
             // Mostrar una notificación de error si ocurre un problema con la solicitud
@@ -65,4 +67,3 @@ function hideControls() {
 function showLoaderAnimationSubmit() {
     document.getElementById('formContact-loader').classList.remove('d-none');
 }
-
