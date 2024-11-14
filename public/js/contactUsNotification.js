@@ -1,5 +1,8 @@
 // Manejo de datos del formulario y envío de mensaje
 document.getElementById('frmSendMessage').addEventListener('submit', function (event) {
+    hideControls();
+    showLoaderAnimationSubmit();
+
     event.preventDefault(); // Prevenir el envío del formulario
 
     // Obtener los valores del formulario
@@ -21,6 +24,8 @@ document.getElementById('frmSendMessage').addEventListener('submit', function (e
     })
         .then(response => {
             // Verificar si la respuesta fue exitosa
+            document.getElementById('formContact-loader').classList.add('d-none');
+            document.getElementById('btnSendMessage').classList.remove('d-none');
             if (response.ok) {
                 this.reset();
 
@@ -40,6 +45,7 @@ document.getElementById('frmSendMessage').addEventListener('submit', function (e
                     confirmButtonText: 'Aceptar'
                 });
             }
+
         })
         .catch(error => {
             // Mostrar una notificación de error si ocurre un problema con la solicitud
@@ -51,4 +57,12 @@ document.getElementById('frmSendMessage').addEventListener('submit', function (e
             });
         });
 });
+
+function hideControls() {
+    document.getElementById('btnSendMessage').classList.add('d-none');
+}
+
+function showLoaderAnimationSubmit() {
+    document.getElementById('formContact-loader').classList.remove('d-none');
+}
 

@@ -5,33 +5,28 @@ function validateForm(event) {
     const mensaje = document.getElementById('message').value.trim();
     const errorMessage = document.getElementById('error-message');
 
-    // Limpiar el mensaje de error
     errorMessage.textContent = '';
 
-    // Validar nombre
     if (nombre.length < 2) {
         errorMessage.textContent = 'Por favor, ingresa un nombre válido.';
-        return false; // Devuelve false si hay un error
+        return false;
     }
 
-    // Validar email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         errorMessage.textContent = 'Por favor, ingresa un email válido.';
-        return false; // Devuelve false si hay un error
+        return false;
     }
 
-    // Validar asunto
     if (subject.length < 2) {
         errorMessage.textContent = 'Por favor, ingresa un asunto válido.';
-        return false; // Devuelve false si hay un error
+        return false;
     }
 
-    // Validar mensaje
     if (mensaje.length < 5) {
         errorMessage.textContent = 'El mensaje debe contener al menos 5 caracteres.';
-        return false; // Devuelve false si hay un error
+        return false;
     }
 
-    return true; // Devuelve true si todo está bien
+    return true;
 }
