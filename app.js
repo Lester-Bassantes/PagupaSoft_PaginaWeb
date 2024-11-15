@@ -41,7 +41,7 @@ app.get('/nosotros', (req, res) => {
 
 // Ruta "Servicios"
 app.get('/servicios', (req, res) => {
-  res.render('404', { page: 'servicios' });
+  res.render('services', { page: 'servicios' });
 });
 
 // Ruta "Test"
