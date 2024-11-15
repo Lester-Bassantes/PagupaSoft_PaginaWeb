@@ -20,7 +20,7 @@
             <h5 class="mb-4">Documentación disponible</h5>
             <% pdfFiles.forEach(file=> { %>
                 <div class="list-pdf-item" onclick="loadPDF('<%= file %>')">
-                    <%= file %>
+                    <%= file.replace('.pdf', '' ) %>
                 </div>
                 <% }); %>
         </div>
@@ -36,6 +36,19 @@
             const viewer = document.getElementById('pdfViewer');
             viewer.src = `/pdfjs/web/viewer.html?file=/documents/${fileName}`;
         }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const documentItems = document.querySelectorAll('.list-pdf-item');
+            documentItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    // Quita la clase 'active' de todos los divs
+                    documentItems.forEach(div => div.classList.remove('pdf-item-active'));
+
+                    // Agrega la clase 'active' solo al div clicado
+                    item.classList.add('pdf-item-active');
+                });
+            });
+        });
     </script>
 
     <%- include('partials/footer') %>

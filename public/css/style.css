@@ -1039,13 +1039,6 @@
     }
 }
 
-.footer .footer-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-}
-
 .footer .footer-item p {
     margin-bottom: 0;
 }
@@ -1087,4 +1080,18 @@
     100% {
         inset: 0
     }
+}
+
+/* Item of pdf when is active */
+.pdf-item-active {
+    background-color: #4a90e2;
+    color: #ffffff;
+    border-color: #357abd;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-item-active:hover {
+    color: #333;
+    background-color: #4a90e2;
 }
