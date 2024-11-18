@@ -1247,3 +1247,18 @@
     transition: 0.5s ease-out;
     overflow: visible;
 }
+
+/* Products sale */
+.product-item>img {
+    width: auto;
+    height: 200px;
+}
+
+.product-item {
+    text-align: left;
+}
+
+.product-image {
+    display: block;
+    margin: 0 auto;
+}
