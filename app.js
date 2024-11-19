@@ -76,33 +76,29 @@ app.get('/documentos', (req, res) => {
   });
 });
 
-// Ruta para manejar el formulario de contacto
 // Ruta para manejar el formulario de contacto con validación
 app.post('/sendMessage', [
   // Validar el nombre
-  body('name').isLength({ min: 2 }).withMessage('El nombre debe tener al menos 2 caracteres.'),
+  body('name').isLength({ min: 3 }).withMessage('El nombre debe tener al menos 3 caracteres.'),
 
   // Validar el correo electrónico
   body('email').isEmail().withMessage('Por favor, ingresa un email válido.'),
 
   // Validar el asunto
-  body('subject').isLength({ min: 2 }).withMessage('El asunto debe tener al menos 2 caracteres.'),
+  body('subject').isLength({ min: 5 }).withMessage('El asunto debe tener al menos 5 caracteres.'),
 
   // Validar el mensaje
   body('message').isLength({ min: 5 }).withMessage('El mensaje debe contener al menos 5 caracteres.'),
 
 ], (req, res, next) => {
-  // Verificar si las validaciones fallaron
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    // Si hay errores, devolver una respuesta con los errores
     return res.status(400).json({ errors: errors.array() });
   }
 
-  // Si las validaciones pasaron, proceder con el envío del correo
   next();
-}, sendEmail); // Llamar a la función sendEmail después de la validación
+}, sendEmail);
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(`Servidor ejecutándose en http://localhost:${process.env.PORT}`);
 });
