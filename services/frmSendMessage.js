@@ -55,7 +55,7 @@ async function sendEmail(req, res) {
         // Envía el correo electrónico
         const info = await transporter.sendMail(mailOptions);
         console.log('Correo enviado:', info.response);
-        res.status(200).json({ message: 'Correo enviado exitosamente.' });
+        res.status(200).json({ message: 'Correo enviado exitosamente. Te responderemos pronto.' });
     } catch (error) {
         console.log('Error al enviar correo:', error);
         res.status(500).json({ message: 'Hubo un problema al enviar el correo. Por favor, inténtalo nuevamente.' });
